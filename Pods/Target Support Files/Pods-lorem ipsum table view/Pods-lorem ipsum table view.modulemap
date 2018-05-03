@@ -1,0 +1,6 @@
+framework module Pods_lorem_ipsum_table_view {
+  umbrella header "Pods-lorem ipsum table view-umbrella.h"
+
+  export *
+  module * { export * }
+}

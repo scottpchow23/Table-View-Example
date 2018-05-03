@@ -67,6 +67,54 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="148" y="34"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="LnJ-mW-hPs">
+            <objects>
+                <viewController storyboardIdentifier="DetailViewController" id="Qtc-Rb-6ks" customClass="DetailViewController" customModule="lorem_ipsum_table_view" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2Ih-zf-Nog">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="z6n-3A-T1K">
+                                <rect key="frame" x="67.5" y="259.5" width="240" height="148.5"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CX8-eB-kxa">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="240" id="5cl-iB-Wih"/>
+                                            <constraint firstAttribute="height" constant="128" id="S3S-Er-Ti8"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zfa-s7-Id7">
+                                        <rect key="frame" x="99" y="128" width="42" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="7a2-2r-7FB"/>
+                                    <constraint firstAttribute="height" constant="148.5" id="YTk-vQ-BF1"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="z6n-3A-T1K" firstAttribute="centerX" secondItem="2Ih-zf-Nog" secondAttribute="centerX" id="Lgb-Nh-jRn"/>
+                            <constraint firstItem="z6n-3A-T1K" firstAttribute="centerY" secondItem="2Ih-zf-Nog" secondAttribute="centerY" id="rdT-Rt-QEa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="sRs-f9-oMx"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="CX8-eB-kxa" id="cfN-Gw-TJG"/>
+                        <outlet property="label" destination="Zfa-s7-Id7" id="mQ5-vL-sIL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FIX-Ag-Hrb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="942" y="34"/>
         </scene>
     </scenes>
 </document>

@@ -5,8 +5,8 @@
 //  Created by Scott P. Chow on 4/18/18.
 //  Copyright © 2018 something here. All rights reserved.
 //
-
-
+import Alamofire
+import SwiftyJSON
 import UIKit
 
 class ViewController: UIViewController , UITableViewDataSource, UITableViewDelegate {
@@ -39,35 +39,34 @@ class ViewController: UIViewController , UITableViewDataSource, UITableViewDeleg
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        
+        let detailVC = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        
+        self.present(detailVC, animated: true, completion: nil)
+    }
+    
     func getMovies() {
         let urlString = "https://rss.itunes.apple.com/api/v1/us/movies/top-movies/all/10/explicit.json"
-        if let url = URL(string: urlString) {
-            let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-                if let error = error {
-                    return
+        Alamofire.request(urlString).responseJSON { (response) in
+            if let data = response.data {
+                
+                guard let json = try? JSON(data:data),
+                    let results = json["feed"]["results"].array else {
+                        return
                 }
-                if let data = data {
-                    guard let json = try? JSONSerialization.jsonObject(with: data, options: []),
-                    let jsonDict = json as? [String : Any],
-                    let feedJsonDict = jsonDict["feed"] as? [String :Any],
-                    let resultsJSONDict = feedJsonDict["results"] as? [[String : Any]]
-                        else {
-                            return
-                    }
-                    for resultJSONDict in resultsJSONDict {
-                        guard let name = resultJSONDict["name"] as? String else {
-                            return
-                        }
-                        print(name)
+                
+                for result in results {
+                    if let name = result["name"].string {
                         self.strings.append(name)
-                        
                     }
-                    DispatchQueue.main.async(execute: {
-                        self.tableView.reloadData()
-                    })
                 }
-            })
-            task.resume()
+                
+                DispatchQueue.main.async(execute: {
+                    self.tableView.reloadData()
+                })
+            }
         }
     }
 }
