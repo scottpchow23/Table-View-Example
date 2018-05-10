@@ -6,17 +6,26 @@
 //  Copyright © 2018 something here. All rights reserved.
 //
 
+import Kingfisher
 import UIKit
 
 class DetailViewController: UIViewController {
+    
+    var movie: Movie!
 
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         imageView.backgroundColor = .red
-//        imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-        label.text = "Hey there"
+        label.text = movie.title
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.kf.setImage(with: URL(string: movie.imageURL) )
     }
-
+    @IBAction func backButtonTUI(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }

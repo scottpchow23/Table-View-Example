@@ -8,4 +8,5 @@ target 'lorem ipsum table view' do
   # Pods for lorem ipsum table view
   pod 'SwiftyJSON', '~> 4.0'
   pod 'Alamofire', '~> 4.7'
+  pod 'Kingfisher', '~> 4.0'
 end

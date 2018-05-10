@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B8B7B561209A8F46006F3AF3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B7B560209A8F46006F3AF3 /* DetailViewController.swift */; };
+		B8B7B56320A3B86A006F3AF3 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B7B56220A3B86A006F3AF3 /* Movie.swift */; };
 		B8E0EB132088085B0071CE05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E0EB122088085B0071CE05 /* AppDelegate.swift */; };
 		B8E0EB152088085B0071CE05 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E0EB142088085B0071CE05 /* ViewController.swift */; };
 		B8E0EB182088085B0071CE05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8E0EB162088085B0071CE05 /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		AC6A82202919A48B904851F5 /* Pods-lorem ipsum table view.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lorem ipsum table view.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lorem ipsum table view/Pods-lorem ipsum table view.debug.xcconfig"; sourceTree = "<group>"; };
 		B8B7B560209A8F46006F3AF3 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		B8B7B56220A3B86A006F3AF3 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		B8E0EB0F2088085B0071CE05 /* lorem ipsum table view.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lorem ipsum table view.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8E0EB122088085B0071CE05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8E0EB142088085B0071CE05 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				B8E0EB1E2088085B0071CE05 /* Info.plist */,
 				B8E0EB24208812970071CE05 /* TableViewCell.swift */,
 				B8B7B560209A8F46006F3AF3 /* DetailViewController.swift */,
+				B8B7B56220A3B86A006F3AF3 /* Movie.swift */,
 			);
 			path = "lorem ipsum table view";
 			sourceTree = "<group>";
@@ -191,11 +194,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-lorem ipsum table view/Pods-lorem ipsum table view-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -229,6 +234,7 @@
 				B8E0EB152088085B0071CE05 /* ViewController.swift in Sources */,
 				B8E0EB132088085B0071CE05 /* AppDelegate.swift in Sources */,
 				B8B7B561209A8F46006F3AF3 /* DetailViewController.swift in Sources */,
+				B8B7B56320A3B86A006F3AF3 /* Movie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
