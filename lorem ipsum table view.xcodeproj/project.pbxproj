@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B88DEC8020AD04C900F499C1 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88DEC7F20AD04C900F499C1 /* MenuViewController.swift */; };
 		B8B7B561209A8F46006F3AF3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B7B560209A8F46006F3AF3 /* DetailViewController.swift */; };
 		B8B7B56320A3B86A006F3AF3 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B7B56220A3B86A006F3AF3 /* Movie.swift */; };
 		B8E0EB132088085B0071CE05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E0EB122088085B0071CE05 /* AppDelegate.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		AC6A82202919A48B904851F5 /* Pods-lorem ipsum table view.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lorem ipsum table view.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lorem ipsum table view/Pods-lorem ipsum table view.debug.xcconfig"; sourceTree = "<group>"; };
+		B88DEC7F20AD04C900F499C1 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		B8B7B560209A8F46006F3AF3 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		B8B7B56220A3B86A006F3AF3 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		B8E0EB0F2088085B0071CE05 /* lorem ipsum table view.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "lorem ipsum table view.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +87,7 @@
 				B8E0EB24208812970071CE05 /* TableViewCell.swift */,
 				B8B7B560209A8F46006F3AF3 /* DetailViewController.swift */,
 				B8B7B56220A3B86A006F3AF3 /* Movie.swift */,
+				B88DEC7F20AD04C900F499C1 /* MenuViewController.swift */,
 			);
 			path = "lorem ipsum table view";
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8E0EB25208812970071CE05 /* TableViewCell.swift in Sources */,
+				B88DEC8020AD04C900F499C1 /* MenuViewController.swift in Sources */,
 				B8E0EB152088085B0071CE05 /* ViewController.swift in Sources */,
 				B8E0EB132088085B0071CE05 /* AppDelegate.swift in Sources */,
 				B8B7B561209A8F46006F3AF3 /* DetailViewController.swift in Sources */,

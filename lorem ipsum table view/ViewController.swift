@@ -32,22 +32,27 @@ class ViewController: UIViewController , UITableViewDataSource, UITableViewDeleg
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TableViewCell
-        if indexPath.row % 2 == 0 {
-            cell.contentView.backgroundColor = UIColor(r: 76, g: 217, b: 100)
-        } else {
-            cell.contentView.backgroundColor = UIColor(r: 90, g: 200, b: 250)
-        }
-        cell.label.text = movies[indexPath.row].title
+        
+        let movie = movies[indexPath.row]
+        cell.movieImageView.kf.setImage(with: URL(string:movie.imageURL))
+        cell.movieImageView.layer.cornerRadius = 4
+        cell.movieImageView.layer.masksToBounds = true
+        cell.titleLabel.text = movie.title
+        cell.genreLabel.text = movie.genre
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d, yyyy"
+        cell.releaseDateLabel.text = dateFormatter.string(from: movie.releaseDate)
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        
-        let detailVC = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
-        detailVC.movie = movies[indexPath.row]
-        
-        self.present(detailVC, animated: true, completion: nil)
+        tableView.deselectRow(at: indexPath, animated: true)
+        let movie = movies[indexPath.row]
+        if let url = URL(string: movie.urlString) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
     }
     
     func getMovies() {
