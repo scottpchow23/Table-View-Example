@@ -77,8 +77,8 @@
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="HVo-3T-jeR" firstAttribute="leading" secondItem="1Hk-h7-hor" secondAttribute="leading" constant="30" id="FlJ-Dm-RNK"/>
-                                                <constraint firstAttribute="bottom" secondItem="HVo-3T-jeR" secondAttribute="bottom" constant="7" id="JEr-qu-q1R"/>
-                                                <constraint firstItem="HVo-3T-jeR" firstAttribute="top" secondItem="1Hk-h7-hor" secondAttribute="top" constant="7" id="WEO-ZH-s8c"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="HVo-3T-jeR" secondAttribute="bottom" constant="7" id="JEr-qu-q1R"/>
+                                                <constraint firstItem="HVo-3T-jeR" firstAttribute="top" relation="greaterThanOrEqual" secondItem="1Hk-h7-hor" secondAttribute="top" constant="7" id="WEO-ZH-s8c"/>
                                                 <constraint firstAttribute="trailing" secondItem="HVo-3T-jeR" secondAttribute="trailing" constant="30" id="xQw-Ir-rsA"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -119,7 +119,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="Z6g-oV-Tt5" kind="relationship" relationship="rootViewController" id="rg5-po-cRa"/>
+                        <segue destination="Z6g-oV-Tt5" kind="relationship" relationship="rootViewController" id="CVt-WS-48w"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nif-QH-pLi" userLabel="First Responder" sceneMemberID="firstResponder"/>

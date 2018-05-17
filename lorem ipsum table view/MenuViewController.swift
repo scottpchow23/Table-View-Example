@@ -22,6 +22,7 @@ class MenuViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let movieViewController = storyboard.instantiateViewController(withIdentifier: "MovieViewController")
         self.navigationController?.pushViewController(movieViewController, animated: true)
+//        self.present(movieViewController, animated: true, completion: nil)
     }
     
 }
