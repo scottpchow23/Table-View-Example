@@ -9,9 +9,16 @@ import Alamofire
 import SwiftyJSON
 import UIKit
 
+enum Type {
+    case movie, track
+}
+
 class ViewController: UIViewController , UITableViewDataSource, UITableViewDelegate {
 
     var movies = [Movie]()
+    var tracks = [Track]()
+    var type: Type?
+    var urlString: String?
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -19,6 +26,13 @@ class ViewController: UIViewController , UITableViewDataSource, UITableViewDeleg
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = UITableViewAutomaticDimension
+        
+        if self.type == Type.movie {
+            self.navigationItem.title = "Movies"
+        } else if self.type == Type.track {
+            self.navigationItem.title = "Music"
+        }
+        
         getMovies()
     }
     
@@ -27,37 +41,59 @@ class ViewController: UIViewController , UITableViewDataSource, UITableViewDeleg
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movies.count
+        if self.type == Type.movie {
+            return movies.count
+        } else if self.type == Type.track {
+            return tracks.count
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TableViewCell
         
-        let movie = movies[indexPath.row]
-        cell.movieImageView.kf.setImage(with: URL(string:movie.imageURL))
-        cell.movieImageView.layer.cornerRadius = 4
-        cell.movieImageView.layer.masksToBounds = true
-        cell.titleLabel.text = movie.title
-        cell.genreLabel.text = movie.genre
-        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM d, yyyy"
-        cell.releaseDateLabel.text = dateFormatter.string(from: movie.releaseDate)
+        if self.type == .movie {
+            let movie = movies[indexPath.row]
+            cell.movieImageView.kf.setImage(with: URL(string:movie.imageURL))
+            cell.titleLabel.text = movie.title
+            cell.genreLabel.text = movie.genre
+            cell.releaseDateLabel.text = dateFormatter.string(from: movie.releaseDate)
+        } else {
+            let track = tracks[indexPath.row]
+            cell.movieImageView.kf.setImage(with: track.artworkURL)
+            cell.titleLabel.text = track.trackTitle
+            cell.genreLabel.text = track.artistName
+            cell.releaseDateLabel.text = dateFormatter.string(from: track.releaseDate)
+        }
+        
+        cell.movieImageView.layer.cornerRadius = 4
+        cell.movieImageView.layer.masksToBounds = true
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let movie = movies[indexPath.row]
-        if let url = URL(string: movie.urlString) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        
+        if self.type == .movie {
+            let movie = movies[indexPath.row]
+            if let url = URL(string: movie.urlString) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        } else if self.type == .track {
+            let track = tracks[indexPath.row]
+            if let url = track.artworkURL {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
         }
+        
     }
     
     func getMovies() {
-        let urlString = "https://rss.itunes.apple.com/api/v1/us/movies/top-movies/all/25/explicit.json"
-        Alamofire.request(urlString).responseJSON { (response) in
+        Alamofire.request(self.urlString!).responseJSON { (response) in
             if let data = response.data {
                 
                 guard let json = try? JSON(data:data),
@@ -66,9 +102,16 @@ class ViewController: UIViewController , UITableViewDataSource, UITableViewDeleg
                 }
                 
                 for result in results {
-                    if let movie = Movie(json: result) {
-                        self.movies.append(movie)
+                    if self.type == Type.movie {
+                        if let movie = Movie(json: result) {
+                            self.movies.append(movie)
+                        }
+                    } else {
+                        if let track = Track(json: result) {
+                            self.tracks.append(track)
+                        }
                     }
+                    
                 }
                 
                 DispatchQueue.main.async(execute: {

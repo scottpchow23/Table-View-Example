@@ -8,6 +8,9 @@
 
 import UIKit
 
+let urlStrings = ["https://rss.itunes.apple.com/api/v1/us/movies/top-movies/all/25/explicit.json",
+                    "https://rss.itunes.apple.com/api/v1/us/apple-music/hot-tracks/all/25/explicit.json"]
+
 class MenuViewController: UIViewController {
     
     @IBOutlet weak var moviesButton: UIButton!
@@ -19,10 +22,28 @@ class MenuViewController: UIViewController {
         musicButton.layer.cornerRadius = musicButton.layer.bounds.height/2
     }
     @IBAction func movieButtonTUI(_ sender: Any) {
+        self.transition(with: sender)
+    }
+    @IBAction func musicButtonTUI(_ sender: Any) {
+        self.transition(with: sender)
+    }
+    
+    
+    func transition(with sender: Any) {
+        guard let sender = sender as? UIButton else {
+            return
+        }
+        
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let movieViewController = storyboard.instantiateViewController(withIdentifier: "MovieViewController")
+        let movieViewController = storyboard.instantiateViewController(withIdentifier: "MovieViewController") as! ViewController
+        movieViewController.type = .movie
+        if sender.tag == 0 {
+            
+        } else {
+            movieViewController.type = .track
+        }
+        movieViewController.urlString = urlStrings[sender.tag]
         self.navigationController?.pushViewController(movieViewController, animated: true)
-//        self.present(movieViewController, animated: true, completion: nil)
     }
     
 }
